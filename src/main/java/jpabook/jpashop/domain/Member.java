@@ -1,9 +1,11 @@
 package jpabook.jpashop.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +17,7 @@ public class Member {
     @Column(name = "member_id")
     private Long id;
 
+    @NotEmpty //필수 제약 조건 (NULL 안 됨) - 이게 제약조건이 Entity에 있을 경우 많은 문제가 발생할 수 있음.
     private String name;
 
     @Embedded
