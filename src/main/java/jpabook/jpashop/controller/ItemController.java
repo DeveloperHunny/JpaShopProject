@@ -70,16 +70,16 @@ public class ItemController {
     @PostMapping("items/{itemId}/edit")
     public String updateItem(@ModelAttribute("form") BookForm bookForm){
 
-        Book book = new Book();
+//        Book book = new Book();
+//
+//        book.setStockQuantity(bookForm.getStockQuantity());
+//        book.setId(bookForm.getId());
+//        book.setPrice(bookForm.getPrice());
+//        book.setName(bookForm.getName());
+//        book.setAuthor(bookForm.getAuthor());
+//        book.setIsbn(bookForm.getIsbn());
 
-        book.setStockQuantity(bookForm.getStockQuantity());
-        book.setId(bookForm.getId());
-        book.setPrice(bookForm.getPrice());
-        book.setName(bookForm.getName());
-        book.setAuthor(bookForm.getAuthor());
-        book.setIsbn(bookForm.getIsbn());
-
-        itemService.saveItem(book);
+        itemService.updateItem(bookForm.getId(), bookForm.getName(), bookForm.getPrice(), bookForm.getStockQuantity());
         return "redirect:/items";
 
     }

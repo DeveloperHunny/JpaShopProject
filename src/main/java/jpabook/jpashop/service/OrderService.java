@@ -6,6 +6,7 @@ import jpabook.jpashop.domain.item.Item;
 import jpabook.jpashop.repository.ItemRepository;
 import jpabook.jpashop.repository.MemberRepository;
 import jpabook.jpashop.repository.OrderRepository;
+import jpabook.jpashop.repository.OrderSearch;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,6 +61,7 @@ public class OrderService {
     /**
      * 주문취소
      */
+    @Transactional
     public void cancleOrder(Long orderId){
         //엔티티 조회
         Order order = orderRepository.findOne(orderId);
@@ -70,13 +72,12 @@ public class OrderService {
     }
 
 
-    //검색
     /**
      * 주문검색
      */
-//    public List<Order> findOrders(OrderSearch orderSearch){
-//        return orderRepository.findAll(orderSearch);
-//    }
+    public List<Order> findOrders(OrderSearch orderSearch){
+        return orderRepository.findAllByCriteria(orderSearch);
+    }
 
 
 
