@@ -8,7 +8,7 @@
         <div>
             <form th:object="${orderSearch}" class="form-inline">
                 <div class="form-group mb-2">
-                    <input type="text" th:field="*{memberName}" class="formcontrol"
+                    <input type="text" th:field="*{memberName}" class="form-control"
                            placeholder="회원명"/>
                 </div>
                 <div class="form-group mx-sm-1 mb-2">
@@ -64,5 +64,6 @@
         form.setAttribute("action", "/orders/" + id + "/cancel");
         document.body.appendChild(form);
         form.submit();
-    }</script>
+    }
+</script>
 </html>
