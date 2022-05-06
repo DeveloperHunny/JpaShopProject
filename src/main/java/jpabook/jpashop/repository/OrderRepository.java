@@ -63,6 +63,8 @@ public class OrderRepository {
         return query.getResultList();
     }
 
+
+
     public List<Order> findWithMebmerDelivery() {
         return em.createQuery(
                 "select o from Order o" +
